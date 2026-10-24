@@ -2,206 +2,489 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Braeden Goggans | Game Developer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #10131a;
-      color: #f4f4f5;
-      line-height: 1.7;
-    }
+    <title>Braeden Goggans | Game Developer</title>
 
-    header {
-      padding: 65px 20px;
-      text-align: center;
-      background: #1b2230;
-    }
+    <meta
+        name="description"
+        content="Braeden Goggans is a Game Design and Development student at UCCS building interactive experiences with Unity, C#, AR, and VR."
+    >
 
-    header h1 {
-      font-size: 42px;
-      margin-bottom: 8px;
-    }
+    <style>
+        :root {
+            --background: #101116;
+            --surface: #191b24;
+            --surface-light: #222530;
+            --text: #f4f4f6;
+            --muted: #b3b6c5;
+            --accent: #8b9cff;
+            --border: #303341;
+        }
 
-    header p {
-      color: #c2cad8;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    nav {
-      text-align: center;
-      padding: 15px;
-      background: #151a23;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    nav a {
-      color: #8ecbff;
-      margin: 0 12px;
-      text-decoration: none;
-    }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+        }
 
-    main {
-      max-width: 850px;
-      margin: auto;
-      padding: 30px 20px;
-    }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
 
-    .project {
-      background: #1b2230;
-      padding: 24px;
-      margin: 22px 0;
-      border-radius: 12px;
-    }
+        a:hover {
+            text-decoration: underline;
+        }
 
-    .tag {
-      display: inline-block;
-      background: #29384d;
-      padding: 4px 10px;
-      margin: 4px;
-      border-radius: 5px;
-      font-size: 14px;
-    }
+        .container {
+            width: min(1100px, 90%);
+            margin: 0 auto;
+        }
 
-    a {
-      color: #8ecbff;
-    }
+        header {
+            border-bottom: 1px solid var(--border);
+            background: rgba(16, 17, 22, 0.96);
+        }
 
-    .screenshot-gallery {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 20px;
-    }
+        nav {
+            min-height: 72px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 16px 0;
+        }
 
-    .screenshot-gallery figure {
-      margin: 0;
-    }
+        .logo {
+            color: var(--text);
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
 
-    .screenshot-gallery img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      border: 1px solid #394355;
-    }
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+            list-style: none;
+        }
 
-    .screenshot-gallery figcaption {
-      color: #c2cad8;
-      font-size: 14px;
-      margin-top: 6px;
-    }
+        nav a {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
 
-    @media (max-width: 600px) {
-      .screenshot-gallery {
-        grid-template-columns: 1fr;
-      }
-    }
+        nav a:hover {
+            color: var(--text);
+        }
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: #aeb7c6;
-    }
-  </style>
+        .hero {
+            padding: 100px 0 90px;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            max-width: 680px;
+            color: var(--muted);
+            font-size: 1.15rem;
+            margin-bottom: 28px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 0 10px 10px 0;
+            border-radius: 7px;
+            background: var(--accent);
+            color: #101116;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            opacity: 0.88;
+        }
+
+        .button.secondary {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        section {
+            padding: 65px 0;
+            scroll-margin-top: 20px;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 22px;
+        }
+
+        .section-intro {
+            color: var(--muted);
+            max-width: 720px;
+            margin-bottom: 28px;
+        }
+
+        .about-card,
+        .project-card,
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .about-card p,
+        .project-card p,
+        .contact-card p {
+            color: var(--muted);
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill {
+            background: var(--surface-light);
+            border: 1px solid var(--border);
+            padding: 7px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .project-type {
+            color: var(--accent);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .project-details {
+            margin: 22px 0;
+            padding-left: 22px;
+            color: var(--muted);
+        }
+
+        .project-details li {
+            margin-bottom: 8px;
+        }
+
+        .screenshot-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        figure {
+            background: var(--surface-light);
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            overflow: hidden;
+        }
+
+        figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 10;
+            object-fit: contain;
+            background: #090a0e;
+        }
+
+        figcaption {
+            padding: 12px 14px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .contact-card a {
+            overflow-wrap: anywhere;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 28px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 650px) {
+            .hero {
+                padding: 70px 0;
+            }
+
+            nav {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            nav ul {
+                gap: 14px;
+            }
+
+            .screenshot-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card,
+            .project-card,
+            .contact-card {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <header>
-    <h1>Braeden Goggans</h1>
-    <p>Game Design &amp; Development Student</p>
-    <p>Unity | C# | AR/VR Development</p>
-  </header>
+    <header>
+        <div class="container">
+            <nav aria-label="Main navigation">
+                <a class="logo" href="#home">Braeden Goggans</a>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I'm a Game Design and Development student at the
-        University of Colorado Colorado Springs. I enjoy
-        building interactive experiences and solving technical
-        problems through game development. My current experience
-        includes Unity, C#, and augmented reality development.
-      </p>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-
-      <div class="project">
-        <h3>AR Cup-Shooting Game</h3>
-
-        <p>
-          A mobile augmented reality game where players aim
-          a virtual cannon, launch projectiles, hit targets,
-          and earn scores.
-        </p>
-
-        <p>
-          <span class="tag">Unity</span>
-          <span class="tag">C#</span>
-          <span class="tag">AR Foundation</span>
-          <span class="tag">Gameplay Systems</span>
-        </p>
-
-        <p>
-          My work included AR image tracking, touch-based
-          aiming, projectile interactions, scoring, and
-          game progression.
-        </p>
-
-        <div class="screenshot-gallery">
-          <figure>
-            <img src="images/01-main-menu.png"
-                 alt="AR Cup-Shooting Game main menu">
-            <figcaption>Main menu and game controls</figcaption>
-          </figure>
-
-          <figure>
-            <img src="images/02-ar-gameplay.png"
-                 alt="Augmented reality cannon and cup targets">
-            <figcaption>Augmented reality gameplay</figcaption>
-          </figure>
-
-          <figure>
-            <img src="images/03-cup-targets-closeup.png"
-                 alt="Close-up of the cup targets">
-            <figcaption>3D targets and cannon</figcaption>
-          </figure>
-
-          <figure>
-            <img src="images/04-game-over.png"
-                 alt="Game over screen">
-            <figcaption>Game over and replay menu</figcaption>
-          </figure>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
-    </section>
+    </header>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        Email:
-        <a href="mailto:goggansbg@gmail.com">
-          goggansbg@gmail.com
-        </a>
-      </p>
-      <p>
-        Feel free to reach out about game development
-        opportunities and projects.
-      </p>
-    </section>
-  </main>
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <p class="eyebrow">Game Design &amp; Development</p>
 
-  <footer>
-    <p>© 2026 Braeden Goggans</p>
-  </footer>
+                <h1>Building interactive experiences.</h1>
+
+                <p>
+                    I'm Braeden Goggans, a Game Design and Development student
+                    at the University of Colorado Colorado Springs. I create
+                    interactive projects using Unity and C#, with a particular
+                    interest in augmented reality, virtual reality, and
+                    gameplay systems.
+                </p>
+
+                <a class="button" href="#projects">View My Projects</a>
+                <a class="button secondary"
+                   href="https://github.com/bgoggans"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    GitHub Profile
+                </a>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>About Me</h2>
+
+                <div class="about-card">
+                    <p>
+                        I'm a game development student who enjoys turning
+                        ideas into playable experiences. My projects have
+                        helped me build experience with gameplay programming,
+                        user interfaces, collision systems, scoring,
+                        and interactive AR features.
+                    </p>
+
+                    <p style="margin-top: 14px;">
+                        I'm interested in games that do more than entertain,
+                        including language-learning experiences and interactive
+                        training applications.
+                    </p>
+
+                    <div class="skills">
+                        <span class="skill">Unity</span>
+                        <span class="skill">C#</span>
+                        <span class="skill">Augmented Reality</span>
+                        <span class="skill">Virtual Reality</span>
+                        <span class="skill">Gameplay Programming</span>
+                        <span class="skill">UI Development</span>
+                        <span class="skill">Prototyping</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2>Projects</h2>
+
+                <p class="section-intro">
+                    A selection of interactive projects I've been developing
+                    while learning game design and programming.
+                </p>
+
+                <article class="project-card">
+                    <p class="project-type">Unity · C# · AR Foundation</p>
+
+                    <h3>AR Cup-Shooting Game</h3>
+
+                    <p>
+                        An augmented reality game where players aim and launch
+                        projectiles at virtual cup targets positioned in the
+                        real world. The project combines mobile touch controls,
+                        AR image tracking, collision detection, and score-based
+                        progression.
+                    </p>
+
+                    <ul class="project-details">
+                        <li>
+                            <strong>AR integration:</strong>
+                            Uses AR image tracking to place and manage
+                            virtual game objects.
+                        </li>
+                        <li>
+                            <strong>Touch controls:</strong>
+                            Players adjust their aim and shot power using
+                            mobile-friendly controls.
+                        </li>
+                        <li>
+                            <strong>Gameplay systems:</strong>
+                            Implements projectile collisions, cup removal,
+                            ball limits, and scoring.
+                        </li>
+                        <li>
+                            <strong>Game flow:</strong>
+                            Includes a main menu, tutorial, gameplay,
+                            and end screen.
+                        </li>
+                    </ul>
+
+                    <h3 style="font-size: 1.2rem; margin-top: 30px;">
+                        Screenshots
+                    </h3>
+
+                    <p style="margin-top: 6px;">
+                        A look at the game's interface and AR gameplay.
+                    </p>
+
+                    <div class="screenshot-gallery">
+                        <figure>
+                            <img
+                                src="01-main-menu.png"
+                                alt="Main menu of the AR cup-shooting game"
+                                loading="lazy"
+                            >
+                            <figcaption>Main menu</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img
+                                src="02-ar-gameplay.png"
+                                alt="Augmented reality cup-shooting gameplay"
+                                loading="lazy"
+                            >
+                            <figcaption>AR gameplay</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img
+                                src="03-cup-targets-closeup.png"
+                                alt="Close-up of the virtual cup targets"
+                                loading="lazy"
+                            >
+                            <figcaption>Virtual cup targets</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img
+                                src="04-game-over.png"
+                                alt="End screen of the AR cup-shooting game"
+                                loading="lazy"
+                            >
+                            <figcaption>Game-over screen</figcaption>
+                        </figure>
+                    </div>
+
+                    <p style="margin-top: 24px;">
+                        <a href="https://github.com/bgoggans/bgoggans.github.io"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            View portfolio repository on GitHub →
+                        </a>
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Contact</h2>
+
+                <div class="contact-card">
+                    <p>
+                        I'm interested in connecting with other developers
+                        and exploring opportunities in game development.
+                    </p>
+
+                    <p style="margin-top: 14px;">
+                        <strong>Email:</strong>
+                        <a href="mailto:YOUR_EMAIL_HERE">
+                            YOUR_EMAIL_HERE
+                        </a>
+                    </p>
+
+                    <p style="margin-top: 8px;">
+                        <strong>GitHub:</strong>
+                        <a href="https://github.com/bgoggans"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            github.com/bgoggans
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                &copy; 2026 Braeden Goggans · Game Design &amp; Development
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
