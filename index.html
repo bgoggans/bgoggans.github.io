@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Braeden Goggans | Game Developer</title>
+
   <style>
     body {
       margin: 0;
@@ -67,6 +68,37 @@
       color: #8ecbff;
     }
 
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .screenshot-gallery figure {
+      margin: 0;
+    }
+
+    .screenshot-gallery img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #394355;
+    }
+
+    .screenshot-gallery figcaption {
+      color: #c2cad8;
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 600px) {
+      .screenshot-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
     footer {
       text-align: center;
       padding: 25px;
@@ -74,11 +106,11 @@
     }
   </style>
 </head>
-<body>
 
+<body>
   <header>
     <h1>Braeden Goggans</h1>
-    <p>Game Design & Development Student</p>
+    <p>Game Design &amp; Development Student</p>
     <p>Unity | C# | AR/VR Development</p>
   </header>
 
@@ -105,23 +137,51 @@
 
       <div class="project">
         <h3>AR Cup-Shooting Game</h3>
+
         <p>
           A mobile augmented reality game where players aim
           a virtual cannon, launch projectiles, hit targets,
           and earn scores.
         </p>
+
         <p>
           <span class="tag">Unity</span>
           <span class="tag">C#</span>
           <span class="tag">AR Foundation</span>
           <span class="tag">Gameplay Systems</span>
         </p>
+
         <p>
           My work included AR image tracking, touch-based
           aiming, projectile interactions, scoring, and
           game progression.
         </p>
-        <p><em>Gameplay video coming soon.</em></p>
+
+        <div class="screenshot-gallery">
+          <figure>
+            <img src="images/01-main-menu.png"
+                 alt="AR Cup-Shooting Game main menu">
+            <figcaption>Main menu and game controls</figcaption>
+          </figure>
+
+          <figure>
+            <img src="images/02-ar-gameplay.png"
+                 alt="Augmented reality cannon and cup targets">
+            <figcaption>Augmented reality gameplay</figcaption>
+          </figure>
+
+          <figure>
+            <img src="images/03-cup-targets-closeup.png"
+                 alt="Close-up of the cup targets">
+            <figcaption>3D targets and cannon</figcaption>
+          </figure>
+
+          <figure>
+            <img src="images/04-game-over.png"
+                 alt="Game over screen">
+            <figcaption>Game over and replay menu</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -143,6 +203,5 @@
   <footer>
     <p>© 2026 Braeden Goggans</p>
   </footer>
-
 </body>
 </html>
